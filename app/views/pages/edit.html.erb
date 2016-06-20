@@ -1,4 +1,4 @@
-<body style="font-family: <%= @page.font %>; background-color: <%= @page.color%>"></body>
+<body style="font-family: <%= @page.font %>; background-color: <%= @page.color %>"></body>
 
 <div class="container-fluid">
   <div class="row p-wrapper">
@@ -17,7 +17,13 @@
 
             <div class="field">
               <label for="exampleInputEmail1" class="sr-only">Font</label>
-              <%= f.select :font, options_for_select([["Times New Roman"], ["Arial"],["Comic Sans MS"]]), {:prompt => "Select Font" }, class: "form-control" %>
+              <%#= f.select :font, options_for_select([["Times New Roman"], ["Arial"],["Comic Sans MS"]]), {:prompt => "Select Font" }, class: "form-control" %>
+              <%= f.select(:font,
+                           options_for_select([["Times New Roman", "Times New Roman"],
+                                                      ["Arial", "Arial"],
+                                                      ["Comic Sans MS", "Comic Sans MS"],],
+                                              :selected => @page.font),
+                           {}, {:class => 'form-control'}) %>
             </div>
             </br>
 
@@ -27,7 +33,6 @@
               <%= f.text_field :color, placeholder: "Color", class: 'form-control minicolor', :id => "picker", data: {'no-turbolink' => true}, as: :minicolors, input_html: {data: {minicolors: {theme: :bootstrap, position: :right}}} %>
             </div>
             </br>
-
 
 
             <div class="actions" style="margin-top: 20px;">
