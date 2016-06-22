@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.minicolors
-//= require bootstrap
+//= require jscolor.js
 //= require turbolinks
 //= require_tree .
