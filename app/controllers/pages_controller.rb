@@ -16,13 +16,20 @@ class PagesController < ApplicationController
   end
 
   def update
-    params[:page][:color]= "##{params[:page][:color]}"
-    @page = Page.find(params[:id])
-    @page.update(page_params)
-    @page.save
-    # redirect_to :action => :show, :id => @page.id
-    redirect_to :back, :id => @page.id
+    respond_to do |format|
+      params[:page][:color]= "##{params[:page][:color]}"
+        @page = Page.find(params[:id])
+      if @page.update(page_params)
+        format.html { redirect_to @page, :flash => { :success => 'App was successfully updated.' } }
+        format.json { head :no_content }
+        format.js {}
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @page.errors, status: :unprocessable_entity }
+      end
+    end
   end
+
 
 
   private
