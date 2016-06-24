@@ -7,6 +7,6 @@ class CreatePages < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-    @page = Page.create(title:'singlepage', color:'#cc66ff', font:'Arial')
+    @page = Page.create(title:'singlepage', color:'cc66ff', font:'Arial')
   end
 end
