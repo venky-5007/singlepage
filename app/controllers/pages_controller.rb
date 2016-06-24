@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 
-  def something
+  def update_page_style
     if params[:id].present?
     @page = Page.find(params[:id])
      params[:color]= "#{params[:color]}"

@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  root 'pages#something'
-  match 'pages/something', via: [:get, :post]
+  root 'pages#update_page_style'
+  match 'pages/update_page_style', via: [:get, :post]
 
 
 
